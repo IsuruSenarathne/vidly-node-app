@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Joi = require("@hapi/joi");
 
-const genreSchema = mongoose.Schema({
+const genreSchema = new mongoose.Schema({
   name: {
     type: String,
     enum: ["Action", "Horror", "Romance", "Comedy"],
@@ -23,3 +23,4 @@ function validateGenre(genreObject) {
 
 exports.Genre = Genre;
 exports.validate = validateGenre;
+exports.genreSchema = genreSchema;

@@ -1,6 +1,7 @@
 const genres = require("./api/genres");
 const home = require("./api/home");
-const customers = require("./api/customers")
+const customers = require("./api/customers");
+const movies = require("./api/movies");
 const express = require("express");
 const logger = require("./middleware/logger");
 const auth = require("./middleware/auth");
@@ -40,7 +41,7 @@ if (app.get("env") === "development") {
 app.use("/api/genres", genres);
 app.use("/api/home", home);
 app.use("/api/customers", customers);
-
+app.use("/api/movies", movies);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening to port ${port}`));
