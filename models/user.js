@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 const Joi = require("@hapi/joi");
-const PasswordComplexity = require('joi-password-complexity');
+const PasswordComplexity = require("joi-password-complexity");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
 const complexityOptions = {
-    min: 10,
-    max: 30,
-    lowerCase: 1,
-    upperCase: 1,
-    numeric: 1,
-    symbol: 1,
-    requirementCount: 2,
-}
+  min: 10,
+  max: 30,
+  lowerCase: 1,
+  upperCase: 1,
+  numeric: 1,
+  symbol: 1,
+  requirementCount: 2
+};
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -27,13 +27,17 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  isAdmin: Boolean
 });
 
 userSchema.methods.generateAuthToken = function() {
-  const token = jwt.sign({_id: this._id}, config.get("jwtPrivateKey") )
+  const token = jwt.sign(
+    { _id: this._id, isAdmin: this.isAdmin },
+    config.get("jwtPrivateKey")
+  );
   return token;
-}
+};
 
 // here we dont use ()=> {} fucntinos as those donsent have "this" for object. it always refers calling fucntion as "this"
 
