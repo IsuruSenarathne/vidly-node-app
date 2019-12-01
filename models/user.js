@@ -31,6 +31,8 @@ const userSchema = new mongoose.Schema({
   isAdmin: Boolean
 });
 
+// NOTE: on advance apps, isAdmin will be roles =[]
+
 userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin },
