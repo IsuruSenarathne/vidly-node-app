@@ -3,6 +3,15 @@ const router = express.Router();
 const _ = require("lodash");
 const { User, validate } = require("../models/user");
 const bcrypt = require("bcrypt");
+const auth = require("../middleware/auth");
+
+
+// GET api/me     <- secure way of getting data for current user
+router.get("/me", auth, async (req, res) => {
+  console.log(req.user)
+  const user = await User.findById(req.user._id) // exclude password
+  return res.send(user);
+});
 
 // POST api/users
 router.post("/", async (req, res) => {
