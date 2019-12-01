@@ -28,8 +28,8 @@ router.post("/", async (req, res) => {
       dailyRentalRate: req.body.dailyRentalRate
     });
 
-    const result = await movie.save();
-    res.send(result);
+    await movie.save();
+    res.send(movie);
     res.end();
   } catch (ex) {
     console.log("ERROR: POST api/movies", ex);
