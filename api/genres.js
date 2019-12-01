@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const _ = require("lodash");
 const { Genre, validate } = require("../models/genre");
+const auth = require("../middleware/auth");
 async function createGenre(name) {
   const genre = new Genre({ name });
   return await genre.save();
@@ -45,7 +46,8 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST api/genres
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => { // by providng "auth" we make this route protected
+console.log(req.body)
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error);
   try {
@@ -53,7 +55,7 @@ router.post("/", async (req, res) => {
     res.status(200).send(genre);
     res.end();
   } catch (ex) {
-    console.log("ERROR: POST api/genres", ex.error.message);
+    console.log("ERROR: POST api/genres", ex);
   }
 });
 

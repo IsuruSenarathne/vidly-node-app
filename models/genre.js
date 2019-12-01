@@ -4,7 +4,6 @@ const Joi = require("@hapi/joi");
 const genreSchema = new mongoose.Schema({
   name: {
     type: String,
-    enum: ["Action", "Horror", "Romance", "Comedy"],
     require: true
   }
 });
