@@ -1,3 +1,4 @@
+require("express-async-errors");
 const genres = require("./api/genres");
 const home = require("./api/home");
 const customers = require("./api/customers");
@@ -5,6 +6,7 @@ const movies = require("./api/movies");
 const rentals = require("./api/rentals");
 const users = require("./api/users");
 const auth = require("./api/auth");
+const error = require("./middleware/error");
 
 const express = require("express");
 // const logger = require("./middleware/logger");
@@ -14,11 +16,12 @@ const morgan = require("morgan");
 const _ = require("lodash");
 const config = require("config");
 const mongoose = require("mongoose");
+const winston = require("winston");
 
 //custom data types
 const Joi = require("@hapi/joi");
 Joi.objectId = require("joi-objectid")(Joi); // set objectId method in Joi class;
-console.log("eee", config.get("jwtPrivateKey"))
+console.log("eee", config.get("jwtPrivateKey"));
 if (!config.get("jwtPrivateKey")) {
   console.error("FATAL ERROR: jwtPrivateKey is not defined.");
   process.exit(1); // process is nodes global var, so we can exit node app. error code  1 means, exit due to error by convention.
@@ -58,6 +61,10 @@ app.use("/api/customers", customers);
 app.use("/api/movies", movies);
 app.use("/api/rentals", rentals);
 app.use("/api/users", users);
+app.use(error);
+
+// config logger
+winston.add(winston.transports.File, { filename: "logfile.log" });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening to port ${port}`));

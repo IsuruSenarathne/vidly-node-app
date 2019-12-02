@@ -33,9 +33,9 @@ async function searchCourse(genreId) {
 
 // GET api/genres
 router.get("/", async (req, res) => {
+  throw new Error("CONASD asd")
   const genres = await gerGenres();
   res.send(genres);
-  res.end();
 });
 
 // GET api/genres/1 (get one genre)
