@@ -4,6 +4,7 @@ const _ = require("lodash");
 const { Genre, validate } = require("../models/genre");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+
 async function createGenre(name) {
   const genre = new Genre({ name });
   return await genre.save();
@@ -33,7 +34,6 @@ async function searchCourse(genreId) {
 
 // GET api/genres
 router.get("/", async (req, res) => {
-  throw new Error("CONASD asd")
   const genres = await gerGenres();
   res.send(genres);
 });
@@ -96,6 +96,7 @@ router.delete("/:id", [auth, admin], async (req, res) => {
   res.send(result);
   res.end();
 });
+
 
 module.exports = router;
 // GET api/genres
