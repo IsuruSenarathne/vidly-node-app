@@ -6,3 +6,15 @@
 {"level":"info","message":"listening to port 3000...","timestamp":"2019-12-03T18:24:50.748Z"}
 {"message":"Server selection timed out after 30000 ms","stack":"MongoTimeoutError: Server selection timed out after 30000 ms\n    at Timeout._onTimeout (F:\\DEVELOPMENT\\node\\vidly\\node_modules\\mongoose\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:897:9)\n    at listOnTimeout (internal/timers.js:531:17)\n    at processTimers (internal/timers.js:475:7)","name":"MongoTimeoutError","reason":{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"]},"level":"error","timestamp":"2019-12-03T18:25:20.734Z"}
 {"message":"Server selection timed out after 30000 ms","stack":"MongoTimeoutError: Server selection timed out after 30000 ms\n    at Timeout._onTimeout (F:\\DEVELOPMENT\\node\\vidly\\node_modules\\mongoose\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:897:9)\n    at listOnTimeout (internal/timers.js:531:17)\n    at processTimers (internal/timers.js:475:7)","name":"MongoTimeoutError","reason":{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"]},"level":"error","timestamp":"2019-12-03T18:25:20.789Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T16:35:50.540Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2019-12-09T16:35:52.583Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T16:54:18.197Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2019-12-09T16:54:20.241Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T17:46:57.242Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T17:47:52.626Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T17:48:19.859Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T17:48:33.755Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T17:48:47.945Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T17:49:04.206Z"}
+{"level":"info","message":"listening to port 3000...","timestamp":"2019-12-09T17:49:27.172Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2019-12-09T17:49:29.265Z"}
